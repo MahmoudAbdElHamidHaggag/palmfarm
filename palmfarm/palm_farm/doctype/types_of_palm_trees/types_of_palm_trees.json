@@ -1,0 +1,129 @@
+{
+ "actions": [],
+ "autoname": "format:{types_of_palm_trees}",
+ "creation": "2026-01-11 12:55:33.251780",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "types_of_palm_trees",
+  "cost_center",
+  "item_group",
+  "amended_from",
+  "connections_tab"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "types_of_palm_trees",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Types Of Palm Trees",
+   "no_copy": 1,
+   "reqd": 1,
+   "translatable": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "label": "Item Group",
+   "options": "Item Group",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Types Of Palm Trees",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "connections_tab",
+   "fieldtype": "Tab Break",
+   "label": "Connections"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "group": "Groups",
+   "link_doctype": "Cost Center",
+   "link_fieldname": "name"
+  },
+  {
+   "group": "Groups",
+   "link_doctype": "Item Group",
+   "link_fieldname": "name"
+  },
+  {
+   "group": "Classfied",
+   "link_doctype": "Item",
+   "link_fieldname": "item_group"
+  },
+  {
+   "group": "Document",
+   "link_doctype": "Stock Entry",
+   "link_fieldname": "cost_center",
+   "table_fieldname": "cost_center"
+  },
+  {
+   "group": "Document",
+   "link_doctype": "Sales Invoice",
+   "link_fieldname": "cost_center",
+   "table_fieldname": "cost_center"
+  },
+  {
+   "group": "Document",
+   "link_doctype": "Payment Entry",
+   "link_fieldname": "cost_center"
+  },
+  {
+   "group": "Document",
+   "link_doctype": "Journal Entry",
+   "link_fieldname": "cost_center"
+  }
+ ],
+ "modified": "2026-02-15 11:59:41.078636",
+ "modified_by": "Administrator",
+ "module": "Palm Farm",
+ "name": "Types Of Palm Trees",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "translated_doctype": 1
+}

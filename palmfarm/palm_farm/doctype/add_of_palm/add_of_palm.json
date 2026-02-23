@@ -1,0 +1,180 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-01-24 21:07:48.742793",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_sr8l",
+  "amended_from",
+  "auto_generated",
+  "voucher_type",
+  "voucher_no",
+  "posting_date",
+  "types_of_palm_trees",
+  "type_of_implant",
+  "number",
+  "source",
+  "supplier",
+  "purchases_type",
+  "payment_account",
+  "purchase_cost",
+  "total_cost",
+  "aggregation_account"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_sr8l",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Add of Palm",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "types_of_palm_trees",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Types Of Palm Trees",
+   "options": "Types Of Palm Trees",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: doc.types_of_palm_trees",
+   "fieldname": "type_of_implant",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type of implant",
+   "options": "\nSeedling\nTree",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: doc.type_of_implant",
+   "fieldname": "number",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Number",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: doc.number",
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Source",
+   "options": "\nThe Farm\nPurchases\nAdded from the collection",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval: doc.source === \"Purchases\" || doc.source === \"Added from the collection\"\n",
+   "fieldname": "purchase_cost",
+   "fieldtype": "Currency",
+   "label": "Purchase Cost",
+   "mandatory_depends_on": "eval: doc.source === \"Purchases\""
+  },
+  {
+   "depends_on": "eval: doc.source === \"Purchases\" || doc.source === \"Added from the collection\"",
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "mandatory_depends_on": "eval: doc.purchase_cost",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval: doc.source === \"Purchases\"",
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "mandatory_depends_on": "eval: doc.source == \"Purchases\"",
+   "options": "Supplier"
+  },
+  {
+   "depends_on": "eval: doc.supplier",
+   "fieldname": "purchases_type",
+   "fieldtype": "Select",
+   "label": "Purchases Type",
+   "mandatory_depends_on": "eval: doc.supplier",
+   "options": "\nCash\nCredit"
+  },
+  {
+   "depends_on": "eval: doc.purchases_type == \"Cash\"",
+   "fieldname": "payment_account",
+   "fieldtype": "Link",
+   "label": "Payment Account",
+   "mandatory_depends_on": "eval: doc.purchases_type == \"Cash\"",
+   "options": "Account"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval: doc.auto_generated",
+   "fieldname": "auto_generated",
+   "fieldtype": "Check",
+   "label": "Auto Generated",
+   "read_only": 1
+  },
+  {
+   "fieldname": "voucher_type",
+   "fieldtype": "Link",
+   "label": "Voucher type",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "voucher_no",
+   "fieldtype": "Dynamic Link",
+   "label": "Voucher No",
+   "options": "voucher_type",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval: doc.source === \"Added from the collection\"",
+   "fieldname": "aggregation_account",
+   "fieldtype": "Table",
+   "label": "Aggregation Account",
+   "options": "Aggregation Account",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-02-22 22:02:03.910882",
+ "modified_by": "Administrator",
+ "module": "Palm Farm",
+ "name": "Add of Palm",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

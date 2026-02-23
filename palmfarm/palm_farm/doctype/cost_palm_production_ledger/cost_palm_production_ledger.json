@@ -1,0 +1,164 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-01-27 11:08:04.509653",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_lejv",
+  "amended_from",
+  "types_of_palm_trees",
+  "total_tree",
+  "cost",
+  "qty_change",
+  "qty_after_transaction",
+  "incoming_rate",
+  "outgoing_rate",
+  "cost_center",
+  "column_break_ekcw",
+  "voucher_type",
+  "voucher_no",
+  "voucher_detail_no",
+  "posting_date",
+  "posting_datetime",
+  "valuation_rate",
+  "balance_stock_value",
+  "change_in_stock_value"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_lejv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Cost Palm Production Ledger",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "types_of_palm_trees",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Types Of Palm Trees",
+   "options": "Types Of Palm Trees",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_tree",
+   "fieldtype": "Int",
+   "label": "Total Tree"
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Cost",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ekcw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "voucher_type",
+   "fieldtype": "Link",
+   "label": "Voucher Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "voucher_no",
+   "fieldtype": "Dynamic Link",
+   "label": "Voucher No",
+   "options": "voucher_type"
+  },
+  {
+   "fieldname": "qty_change",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Qty Change",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "posting_datetime",
+   "fieldtype": "Datetime",
+   "label": "Posting Datetime"
+  },
+  {
+   "fieldname": "qty_after_transaction",
+   "fieldtype": "Int",
+   "label": "Qty After Transaction"
+  },
+  {
+   "fieldname": "incoming_rate",
+   "fieldtype": "Currency",
+   "label": "Incoming Rate"
+  },
+  {
+   "fieldname": "outgoing_rate",
+   "fieldtype": "Currency",
+   "label": "Outgoing Rate"
+  },
+  {
+   "fieldname": "valuation_rate",
+   "fieldtype": "Currency",
+   "label": "Valuation Rate"
+  },
+  {
+   "fieldname": "balance_stock_value",
+   "fieldtype": "Currency",
+   "label": "Balance Stock Value"
+  },
+  {
+   "fieldname": "change_in_stock_value",
+   "fieldtype": "Currency",
+   "label": "Change in Stock Value"
+  },
+  {
+   "fieldname": "voucher_detail_no",
+   "fieldtype": "Data",
+   "label": "Voucher Detail No"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-02-03 11:21:20.891824",
+ "modified_by": "Administrator",
+ "module": "Palm Farm",
+ "name": "Cost Palm Production Ledger",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

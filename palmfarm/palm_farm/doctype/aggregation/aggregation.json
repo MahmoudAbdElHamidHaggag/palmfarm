@@ -1,0 +1,115 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-01-31 10:31:08.427820",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "voucher_type",
+  "voucher_no",
+  "qty_tree",
+  "total_cost",
+  "qty_seeding",
+  "share",
+  "total_share",
+  "account"
+ ],
+ "fields": [
+  {
+   "allow_on_submit": 1,
+   "fieldname": "qty_tree",
+   "fieldtype": "Int",
+   "label": "Qty Tree",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "qty_seeding",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Qty Seeding",
+   "non_negative": 1,
+   "read_only": 1,
+   "reqd": 1,
+   "width": "1"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "share",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Share",
+   "read_only": 1,
+   "reqd": 1,
+   "width": "1"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_share",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Share",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "voucher_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Voucher Type",
+   "options": "DocType",
+   "read_only": 1,
+   "reqd": 1,
+   "width": "1"
+  },
+  {
+   "fieldname": "voucher_no",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Voucher No",
+   "options": "voucher_type",
+   "width": "1"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Account",
+   "options": "Account",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-02-22 00:19:42.644709",
+ "modified_by": "Administrator",
+ "module": "Palm Farm",
+ "name": "Aggregation",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
