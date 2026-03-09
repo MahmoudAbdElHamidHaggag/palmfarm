@@ -52,7 +52,6 @@
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Qty Change",
-   "non_negative": 1,
    "reqd": 1
   },
   {
@@ -131,7 +130,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-02-14 19:06:50.845380",
+ "modified": "2026-03-02 00:35:11.467277",
  "modified_by": "Administrator",
  "module": "Palm Farm",
  "name": "Palm Tree Leadger",

@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestPalmLeadger(FrappeTestCase):
+class TestAddingadateharvest(FrappeTestCase):
 	pass

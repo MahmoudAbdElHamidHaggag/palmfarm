@@ -21,7 +21,7 @@ frappe.ui.form.on('Add of Palm', {
                 }
             };
         });
-        if(frm.doc.source ===  "Added from the collection"){
+        if(frm.doc.source ===  "Added from the collection" && frm.doc.auto_generated !== 1){
             frappe.msgprint(__("This Choose For Auto Genrated Only"));
             frm.set_value("source", "");
         }

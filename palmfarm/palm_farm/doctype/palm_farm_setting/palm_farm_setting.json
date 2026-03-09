@@ -8,9 +8,13 @@
   "company",
   "parent_cost_center",
   "parent_item_group",
+  "date_harvest_item",
+  "date_harvet_warehouse",
   "biological_assets_category",
   "bio_assets_account",
   "capitalization_bio_assets_account",
+  "stock_adjustment_account",
+  "execution_of_palm_account",
   "temporary_account"
  ],
  "fields": [
@@ -65,13 +69,41 @@
    "label": "Parent Item Group",
    "options": "Item Group",
    "reqd": 1
+  },
+  {
+   "fieldname": "execution_of_palm_account",
+   "fieldtype": "Link",
+   "label": "Execution of Palm Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_harvest_item",
+   "fieldtype": "Link",
+   "label": "Date Harvest Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "stock_adjustment_account",
+   "fieldtype": "Link",
+   "label": "Stock Adjustment Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_harvet_warehouse",
+   "fieldtype": "Link",
+   "label": "Date Harvet Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2026-02-23 00:38:02.713159",
+ "modified": "2026-03-10 00:41:47.060597",
  "modified_by": "Administrator",
  "module": "Palm Farm",
  "name": "Palm Farm Setting",

@@ -112,6 +112,7 @@ class OpeningPalmBalance(Document):
             parent.append("aggregation", {
                 "voucher_type": self.doctype,
                 "voucher_no": self.name,
+                "voucher_date": self.posting_date,
                 "qty_seeding": self.number_of_palm,
                 "share": self.cost_of_palm,
                 "account": acc_s,

@@ -1,24 +1,21 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2026-01-24 21:08:09.455477",
+ "creation": "2026-03-05 00:47:45.240801",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_jkfr",
-  "posting_datetime",
+  "section_break_r77n",
+  "amended_from",
   "posting_date",
   "edit_posting_date",
-  "amended_from",
   "types_of_palm_trees",
-  "type_of_implant",
-  "number",
-  "cost_of_palm",
-  "total_of_cost"
+  "date_harvest_item",
+  "qty_by_kg"
  ],
  "fields": [
   {
-   "fieldname": "section_break_jkfr",
+   "fieldname": "section_break_r77n",
    "fieldtype": "Section Break"
   },
   {
@@ -26,7 +23,7 @@
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Execution of Palm",
+   "options": "Adding a date harvest",
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
@@ -41,60 +38,44 @@
   },
   {
    "depends_on": "eval: doc.types_of_palm_trees",
-   "fieldname": "number",
-   "fieldtype": "Int",
-   "label": "Number",
+   "fieldname": "date_harvest_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Date Harvest Item",
+   "options": "Item",
+   "read_only": 1,
    "reqd": 1
   },
   {
-   "fieldname": "cost_of_palm",
-   "fieldtype": "Currency",
-   "label": "Cost of Palm",
-   "no_copy": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "total_of_cost",
-   "fieldtype": "Currency",
-   "label": "Total of Cost",
-   "no_copy": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "type_of_implant",
-   "fieldtype": "Select",
-   "label": "Type of implant",
-   "options": "\nseedling\nTree"
+   "depends_on": "eval: doc.date_harvest_item",
+   "fieldname": "qty_by_kg",
+   "fieldtype": "Float",
+   "label": "Qty By KG",
+   "reqd": 1
   },
   {
    "default": "Today",
    "fieldname": "posting_date",
    "fieldtype": "Date",
    "label": "Posting Date",
-   "read_only_depends_on": "eval: doc.edit_posting_date === 0"
+   "mandatory_depends_on": "eval: doc.edit_posting_date === 1",
+   "read_only_depends_on": "eval: doc.edit_posting_date !== 1"
   },
   {
    "default": "0",
    "fieldname": "edit_posting_date",
    "fieldtype": "Check",
    "label": "Edit Posting Date"
-  },
-  {
-   "default": "Now",
-   "fieldname": "posting_datetime",
-   "fieldtype": "Datetime",
-   "hidden": 1,
-   "label": "Posting Datetime"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-03-02 01:18:10.756670",
+ "modified": "2026-03-05 01:01:30.933116",
  "modified_by": "Administrator",
  "module": "Palm Farm",
- "name": "Execution of Palm",
+ "name": "Adding a date harvest",
  "owner": "Administrator",
  "permissions": [
   {

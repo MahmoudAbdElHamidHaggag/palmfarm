@@ -50,7 +50,6 @@
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Total Cost",
-   "non_negative": 1,
    "read_only": 1
   },
   {
@@ -72,7 +71,7 @@
   {
    "allow_on_submit": 1,
    "fieldname": "total_qty",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Total Qty",
    "read_only": 1
@@ -100,7 +99,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-02-23 14:48:13.988634",
+ "modified": "2026-03-01 22:50:13.448142",
  "modified_by": "Administrator",
  "module": "Palm Farm",
  "name": "Seed Cost Aggregation",

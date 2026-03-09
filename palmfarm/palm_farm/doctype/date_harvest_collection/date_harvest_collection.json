@@ -1,0 +1,64 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-09 00:07:11.734372",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "voucher_type",
+  "voucher_no",
+  "voucher_date",
+  "date_harvest_item",
+  "qty_by_kg"
+ ],
+ "fields": [
+  {
+   "fieldname": "voucher_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Voucher Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "voucher_date",
+   "fieldtype": "Data",
+   "label": "Voucher Date"
+  },
+  {
+   "fieldname": "date_harvest_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Date Harvest Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "qty_by_kg",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty By KG"
+  },
+  {
+   "fieldname": "voucher_no",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Voucher NO",
+   "options": "voucher_type"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-10 00:01:18.362586",
+ "modified_by": "Administrator",
+ "module": "Palm Farm",
+ "name": "Date Harvest Collection",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

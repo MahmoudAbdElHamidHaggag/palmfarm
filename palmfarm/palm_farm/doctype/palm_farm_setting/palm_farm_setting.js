@@ -54,6 +54,26 @@ frappe.ui.form.on("Palm Farm Setting", {
                 }
             }
         })
+         frm.set_query("execution_of_palm_account", () => {
+            return {
+                filters: [
+                    ["is_group", "=", 0],
+                    ["disabled", "=", 0],
+                    ["freeze_account", "=", "No"],
+                    ["account_type", "like", "%Expense%"]
+                ]
+            }
+        })
+        frm.set_query("stock_adjustment_account", () => {
+            return {
+                filters: [
+                    ["is_group", "=", 0],
+                    ["disabled", "=", 0],
+                    ["freeze_account", "=", "No"],
+                    ["account_type", "=", "Stock Adjustment"]
+                ]
+            }
+        })
         frm.set_query("parent_item_group", () => {
             return{
                 filters:{

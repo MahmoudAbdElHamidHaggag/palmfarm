@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class PalmLeadger(Document):
+class ProductionCostAggregation(Document):
 	pass

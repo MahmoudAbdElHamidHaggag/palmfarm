@@ -23,7 +23,6 @@ class AddofPalm(Document):
         com = h.company
         acc_t = h.bio_assets_account
         acc_s = h.capitalization_bio_assets_account
-        plant_doc = frappe.get_doc("Seed Cost Aggregation")
 
         debit_account = acc_t if self.type_of_implant == "Tree" else acc_s
 
@@ -45,20 +44,32 @@ class AddofPalm(Document):
             "voucher_no": self.name,
             "remarks": f"{self.type_of_implant} - {self.number} palms @ {self.purchase_cost}",
         }
+        if self.source == "Purchases":
+            credit_account = get_party_account("Supplier", self.supplier, com)
+            if not credit_account:
+                frappe.throw("No payable account found for this Supplier.")
 
-        gl.append(self.get_gl_dict(base_args, debit_account, flt(self.total_cost), 0, credit_account))
+            gl.append(self.get_gl_dict(base_args, debit_account, flt(self.total_cost), 0, credit_account))
+            gl.append(self.get_gl_dict(base_args, credit_account, 0, flt(self.total_cost), debit_account, "Supplier", self.supplier))
 
-        gl.append(self.get_gl_dict(base_args, credit_account, 0, flt(self.total_cost), debit_account, "Supplier", self.supplier))
+            if self.purchases_type == "Cash":
+                if not self.payment_account:
+                    frappe.throw("Please select a Payment Account for Cash purchase.")
+                gl.append(self.get_gl_dict(base_args, credit_account, flt(self.total_cost), 0, self.payment_account, "Supplier", self.supplier))
+                gl.append(self.get_gl_dict(base_args, self.payment_account, 0, flt(self.total_cost), credit_account))
 
-        if self.purchases_type == "Cash":
-            if not self.payment_account:
-                frappe.throw("Please select a Payment Account for Cash purchase.")
+        elif self.source == "Added from the collection":
+            if not self.aggregation_account:
+                frappe.throw("Aggregation accounts table is empty.")
 
-            gl.append(self.get_gl_dict(base_args, credit_account, flt(self.total_cost), 0, self.payment_account, "Supplier", self.supplier))
+            against_list = ", ".join([d.account for d in self.aggregation_account if d.account])
+            gl.append(self.get_gl_dict(base_args, debit_account, flt(self.total_cost), 0, against_list))
 
-            gl.append(self.get_gl_dict(base_args, self.payment_account, 0, flt(self.total_cost), credit_account))
+            for row in self.aggregation_account:
+                if row.account and flt(row.total) > 0:
+                    gl.append(self.get_gl_dict(base_args, row.account, 0, flt(row.total), debit_account))
 
-        if self.source == "Purchases" and gl:
+        if gl:
             make_gl_entries(gl)
 
     def get_gl_dict(self, base, account, debit, credit, against, party_type=None, party=None):
@@ -115,6 +126,7 @@ class AddofPalm(Document):
             parent.append("aggregation", {
                 "voucher_type": self.doctype,
                 "voucher_no": self.name,
+                "voucher_date": self.posting_date,
                 "qty_seeding": self.number,
                 "share": self.purchase_cost,
                 "total_share": flt(self.number) * flt(self.purchase_cost),

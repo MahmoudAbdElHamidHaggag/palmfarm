@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class CostPalmProductionLedger(Document):
+class DateHarvestCollection(Document):
 	pass

@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestCostPalmProductionLedger(FrappeTestCase):
+class TestCostAndProductionAggregation(FrappeTestCase):
 	pass
